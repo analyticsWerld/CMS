@@ -1,0 +1,72 @@
+{%extends 'cms/baseApp.html'%}
+{%load static%}
+{% block title%}
+    <title>CMS | Attendance</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'attendance/css/create.css'%}">
+{%endblock%}
+
+    
+{%block content%}
+    <div class="top">
+        <h1>MARK ATTENDANCE</h1>
+    </div>
+    <hr>
+    <div class="sort">
+        <label for="filter">Filter by:</label>    
+        <select name="filter" id="filter">
+            <option value="ADULT">Adult</option>
+            <option value="YOUTH">Youth</option>
+            <option value="CHILDREN">Children</option>
+            <option value="ZONES">Zones</option>
+        </select>
+    </div>
+    
+<div class="container">
+    {%for member in members%}
+    {%if member.photo %}
+    <div class="scene scene--card">
+        <div class="card">
+            <div class="card__face card__face--front">
+                <a href="#"  class="image"><img src="{{member.photo.url}}" alt="DP" width="180" height="200"></a> 
+              
+            </div>
+            <div class="card__face card__face--back">
+                <div class="icon">
+                    <i class='bx bx-user-check'></i> 
+                </div>
+                <div class="">
+                    <h6>PRESENT</h6>
+                </div> 
+            </div>
+        </div>
+        <div class="name">
+            <h3>{{member.get_short_name}}</h3>
+        </div>
+    </div>
+    {%endif%}
+    {%endfor%}
+    
+
+    <div class="submit">
+        <input class="button" type="submit" value="Done">
+    </div> 
+    
+
+    
+
+
+
+
+
+      <script>
+          var cards = document.querySelectorAll('.card');
+
+        [...cards].forEach((card)=>{
+        card.addEventListener( 'click', function() {
+            card.classList.toggle('is-flipped');
+        });
+        });
+      </script>
+      {%endblock%}

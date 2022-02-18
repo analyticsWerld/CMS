@@ -1,0 +1,24 @@
+{% extends 'cms/baseApp.html' %}
+
+{%load static%}
+{% block title%}
+    <title> CMS | Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <link rel="stylesheet" href="{% static 'cms/css/dashboard.css'%}">
+{%endblock%}
+
+{% block content%}
+<br>
+<br>
+<hr>
+<div id="baptised-chart" style = "width: 550px; height: 400px; margin: 0 auto"></div>
+<br>
+<hr>
+<br>
+<div id="gender-chart" style = "width: 550px; height: 400px; margin: 0 auto"></div>
+<script>
+  Highcharts.chart('baptised-chart',{{ baptised|safe }});
+  Highcharts.chart('gender-chart', {{ gender|safe }});
+</script>
+{%endblock%}

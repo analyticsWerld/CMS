@@ -1,0 +1,55 @@
+{% extends 'cms/baseApp.html'%}
+
+{%load static%}
+{% block title%}
+    <title>CMS | Member</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'membership/css/show_member.css'%}">
+{%endblock%}
+
+    
+{%block content%}
+
+    <div class="main-div">
+        <div class="div">
+            <div class="picture">
+                <div class=""><img src="{{member.photo.url}}" alt="No Profile picture" width="180" height="200"></div>
+                <h2>{{member.get_full_name}}</h2>  <hr>
+            </div>
+            
+            <div class="profile-details">
+                <div class="">
+                    <fieldset>
+                        <legend>Personal Info</legend>
+                        NAME: {{member.get_full_name}} <br>
+                        GENDER: {{member.gender}} <br>
+                        DATE OF BIRTH: {{member.birth_date}} <br>
+                        BAPTISED: YES <br>
+                        DATE JOINED: {{member.date_joined_church}} <br>
+                        EMAIL: {{member.email}} <br>
+                        LOCATION: {{member.address}}
+                        OCCUPATION : {{member.occupation}}
+                    </fieldset>
+                </div>
+                <div class="">
+                    <fieldset>
+                        <legend>Attendance Statistics</legend>
+                        TOTAL ATTENDANCE: <br>
+                        341 out of 365 <br>
+
+                        <br> SUNDAYS: 114 of 117 <br>
+                        WEEKDAYS: 230 of 230
+
+                    </fieldset>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+
+
+    
+{%endblock%}

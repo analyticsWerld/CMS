@@ -1,0 +1,39 @@
+table {
+    margin: 20px 0;
+}
+.tablewrapper {
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    width: 100%
+}
+.table-title h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editbtn {
+    border: 1px solid #0d6efd;
+    padding: 2px;
+    background-color: #0d6efd;
+    color: white;
+}
+.deletebtn {
+    border: 1px solid red;
+    padding: 2px;
+    background-color: red;
+    color: white;
+}
+.viewbtn {
+    border: 1px solid green;
+    padding: 2px;
+    background-color: green;
+    color: white;
+}
+
+.top-stuff{
+    justify-content: center;
+    display: flex;
+    margin-top: 1%;
+}

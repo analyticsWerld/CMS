@@ -1,0 +1,77 @@
+{%extends 'cms/baseApp.html'%}
+{% load static%}
+
+{% block title%}
+<title>Apps | CMS</title>
+<link rel="stylesheet" href="{% static 'cms/css/apps.css'%}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+{%endblock%}
+
+{%block content%}
+
+
+<div class="main">  
+  <a href="{%url 'show_members'%}" class="big-box">
+      <div class="top-box">
+          <div class="iicon">
+                  <i class='bx bx-male-female '></i>
+          </div>
+      </div>
+      <div class="info-box">
+           MEMBERS 
+      </div>
+  </a>  
+  <a href="{%url 'attendance'%}" class="big-box">
+      <div class="top-box">
+          <div class="iicon">
+                  <i class='bx bx-user-check'></i>
+          </div>
+      </div>
+      <div class="info-box">
+           ATTENDANCE 
+      </div>
+  </a>  
+  <a href="" class="big-box">
+      <div class="top-box">
+          <div class="iicon">
+                  <i class='bx bx-group '></i>
+          </div>
+      </div>
+      <div class="info-box">
+           GROUPS 
+      </div>
+  </a>  
+  <a href="{% url 'show_finance'%}" class="big-box">
+      <div class="top-box">
+          <div class="iicon">
+                  <i class='bx bx-bar-chart-alt-2 '></i>
+          </div>
+      </div>
+      <div class="info-box">
+           FINANCE REPORT
+      </div>
+  </a>  
+  <a href="{%url 'show_announcement'%}" class="big-box">
+      <div class="top-box">
+          <div class="iicon">
+                  <i class='bx bxs-megaphone '></i>
+          </div>
+      </div>
+      <div class="info-box">
+           ANNOUNCEMENTS
+      </div>
+  </a>  
+  <a href="" class="big-box">
+      <div class="top-box">
+          <div class="iicon">
+                  <i class='bx bx-folder '></i>
+          </div>
+      </div>
+      <div class="info-box">
+           APPOINTMENTS
+      </div>
+  </a>
+ 
+</div>
+
+{%endblock%}

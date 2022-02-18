@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'announcement/css/login.css'%}">
+    <title>CMS | Login</title>
+</head>
+<body>
+    <div class="main">
+        <div class="sub">
+            <div class="left">
+                <div class="image">
+                    <img src="{% static 'cms/img/coc.jpeg' %}" alt="church_logo">
+                </div>
+                 
+                COC-Kwamo
+            </div>
+            <div class="right">
+                {%if form.errors%} 
+                    {{form.errors}}
+                {%endif%}
+                <form method="POST" class="post-form" action=""> 
+                    {% csrf_token %}
+                    {{form.username}}
+                    {{form.password}}
+                    <center><button type="submit">Submit</button></center>
+                </form> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

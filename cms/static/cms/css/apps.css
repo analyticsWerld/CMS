@@ -1,0 +1,47 @@
+
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.main {
+    max-width: fit-content;
+    margin: 200px auto; 
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 40px;
+}
+.big-box {
+    width: 200px;
+    height: 180px;
+    border-radius: 5px;
+    border-style: double;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.top-box {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.info-box {
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder
+}
+.iicon {
+    font-size: 70px;
+    color: rgba(0, 0, 0, 0.6)
+}

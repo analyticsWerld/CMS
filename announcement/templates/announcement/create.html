@@ -1,0 +1,70 @@
+{% extends 'cms/baseApp.html' %}
+{% load static%}
+
+{%block title%}
+<title>Create Announcement</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<!-- Font Awesome -->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<!-- Moment.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+<!-- Tempus Dominus Bootstrap 4 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+
+{%endblock%}
+
+{% block content%}
+<form method="POST" class="post-form" action="">  
+    {% csrf_token %}  
+    <dArchiv class="container" style="margin-top: 4rem;">  
+        <br>  
+        <div class="form-group row">  
+            <label class="col-sm-1 col-form-label"></label>  
+            <div class="">  
+            <h3 class="">Enter Announcement Details</h3>  
+            </div>  
+        </div>  
+        <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">Information</label>  
+        <div class="col-sm-4">  
+        {{form.describe}}  
+        </div>  
+        </div>  
+        <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Deadline</label>  
+        <div class="col-sm-4">  
+            
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+            
+                {{ form.deadline}}     
+            </div>  
+        </div>  
+        <div class="form-group row">  
+          <label class="col-sm-2 col-form-label"></label>  
+      <div class="col-sm-4">
+        {%if form.errors.deadline%}  
+        {{ form.errors.deadline }}
+        {%endif%}
+      </div>  
+      </div>  
+        
+        <div class="form-group row">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">  
+        <button type="submit" class="btn btn-primary">Submit</button>  
+        </div>  
+        </div>  
+    </div>  
+</form>  
+
+
+
+    
+{%endblock%}
