@@ -1,8 +1,35 @@
+from pty import CHILD
 from .models import Member
 from django.db.models import Q,Count
 import json
 
 
+def class_summary():
+    dataset = Member.objects.values('church_class').annotate(
+        counts = Count('church_class')
+    ).order_by('church_class')
+    
+    classes = []
+    counts = []     
+    for entry in dataset:
+        classes.append("%s Class"%entry.get("church_class"))
+        counts.append(entry.get("counts"))
+
+    # chart = {
+    #     'chart': {'type': 'pie'},
+    #     'title': {'text': 'Titanic Survivors by Ticket Class'},
+    #     'series': [{
+    #         'name': 'Embarkation Port',
+    #         'data': list(map(lambda row: {'name': port_display_name[row['embarked']], 'y': row['total']}, dataset))
+    #     }]
+    # }
+
+    return {
+        'categories': json.dumps(classes),
+        'counts': json.dumps(counts)
+    }
+
+    return dataset
 def gender_summary():
     dataset = Member.objects.values('church_class').annotate(
         male_count = Count('church_class',filter=Q(gender = "MALE")),
@@ -37,8 +64,7 @@ def gender_summary():
         'series': [male_series, female_series]
     }
 
-    dump = json.dumps(chart)
-    return dump
+    return json.dumps(chart)
 
 
 def baptised_summary():
@@ -65,7 +91,7 @@ def baptised_summary():
         'data' : not_baptised,
         'color' : 'red'
     }
-    print([baptised_series,not_baptised_series])
+
     chart = {
         'chart': {'type': 'column'},
         'title': {'text': 'Baptismal Status Distribution'},
@@ -76,4 +102,4 @@ def baptised_summary():
     dump = json.dumps(chart)
     return dump
 
-member_summary_context = {'baptised':baptised_summary(),'gender':gender_summary()}
+member_summary_context = {'baptised':baptised_summary(),'gender':gender_summary(),'summaries':class_summary()}

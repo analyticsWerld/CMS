@@ -26,6 +26,11 @@ def attendance(request):
         form = AttendanceForm()  
     return render(request,'attendance/create.html',{'members':members}) 
 
+def atten(request):
+    form = AttendanceForm()
+    print(form)
+    return render(request,'attendance/try.html',{'form':form})
+
 #@login_required(login_url="apps_login")
 # def show_attendance(request):
 #     attendance = Attendance.objects.all().order_by("deadline") 

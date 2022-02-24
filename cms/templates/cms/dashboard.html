@@ -17,6 +17,7 @@
 <hr>
 <br>
 <div id="gender-chart" style = "width: 550px; height: 400px; margin: 0 auto"></div>
+<div id="gender-chart" style = "width: 550px; height: 400px; margin: 0 auto">{{summaries}}</div>
 <script>
   Highcharts.chart('baptised-chart',{{ baptised|safe }});
   Highcharts.chart('gender-chart', {{ gender|safe }});

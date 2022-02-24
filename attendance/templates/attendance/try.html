@@ -1,0 +1,12 @@
+{%extends 'cms/baseApp.html'%}
+{%load static%}
+{% block title%}
+    <title>CMS | Attendance</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'attendance/css/create.css'%}">
+{%endblock%}
+
+{%block content%}
+    {{form.as_p}}
+{%endblock%}

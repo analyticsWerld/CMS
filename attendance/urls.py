@@ -6,4 +6,5 @@ urlpatterns = [
     #path("edit/<int:id>",views.edit_attendance, name = "edit_attendance"),
     #path("remove/<int:id>",views.delete_attendance, name = "delete_attendance"),
     path("take_attendance",views.attendance, name = "attendance"),
+    path("try",views.atten, name = "try"),    
 ]

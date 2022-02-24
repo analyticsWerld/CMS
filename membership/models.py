@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
+from datetime import date
 
 
 
@@ -68,7 +69,38 @@ class Member(AbstractUser):
         verbose_name = _('member')
         verbose_name_plural = _('members')
 
-    
+    def get_generic_name(self):
+        if str.lower(self.church_role) == "elder":
+            title = "Eld."
+        elif str.lower(self.church_role) == "deacon":
+            title = "Deac."
+        else:
+            if str.lower(self.church_class) == "children":
+                title = ""
+            else:
+                if str.lower(self.gender) == "male":
+                    title = "Bro."
+                else:
+                    if self.age > 35:
+                        title = "Mad."
+                    else:
+                        title = "Sis."
+
+
+        generic_name = title + " " + self.first_name + " " + self.last_name.split()[-1] 
+        return generic_name
+
+    @property
+    def age(self):
+        today = date.today()
+        if self.birth_date:
+            age = today.year - self.birth_date.year - ((today.month, today.day) < (self.birth_date.month, self.birth_date.day))
+        else:
+            age = 0
+        print(age)
+        return age
+
+
 
 
     def __str__(self):
