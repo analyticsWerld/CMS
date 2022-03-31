@@ -13,7 +13,9 @@
         <h1>MARK ATTENDANCE</h1>
     </div>
     <hr>
-    <div class="sort">
+
+    <div class="top-group" style="text-align: center;">
+        <div class="sort">
         <label for="filter">Filter by:</label>    
         <select name="filter" id="filter">
             <option value="ADULT">Adult</option>
@@ -23,13 +25,19 @@
         </select>
     </div>
     
+    <div class="submit" style="display: inline;">
+        <input class="buttonn" type="submit" value="Confirm All">
+    </div> 
+    </div>
+    
+    
 <div class="container">
     {%for member in members%}
     {%if member.photo %}
     <div class="scene scene--card">
         <div class="card">
             <div class="card__face card__face--front">
-                <a href="#"  class="image"><img src="{{member.photo.url}}" alt="DP" width="180" height="200"></a> 
+                <button    class="image"><img src="{{member.photo.url}}" alt="DP" width="180" height="200"></button> 
               
             </div>
             <div class="card__face card__face--back">
@@ -49,9 +57,6 @@
     {%endfor%}
     
 
-    <div class="submit">
-        <input class="button" type="submit" value="Done">
-    </div> 
     
 
     

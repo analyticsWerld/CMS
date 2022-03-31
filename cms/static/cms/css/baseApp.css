@@ -139,7 +139,7 @@ a {
     padding-left: calc(var(--nav-width) + 1rem)
 }
 
-.active {
+.active, .nav_link:active {
     color: var(--white-color)
 }
 
